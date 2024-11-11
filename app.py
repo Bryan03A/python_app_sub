@@ -1,3 +1,4 @@
+import os
 from flask import Flask, render_template, request
 
 app = Flask(__name__)
@@ -12,6 +13,6 @@ def index():
             result = float(num1) - float(num2)
     return render_template('index.html', result=result)
 
-if __name__ == '__main__':
-    app.run(debug=True, port=6002)
+if __name__ == "__main__":
+    app.run(host="0.0.0.0", port=int(os.environ.get("PORT", 6002)))
 
